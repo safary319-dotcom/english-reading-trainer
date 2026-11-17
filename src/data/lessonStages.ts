@@ -11,12 +11,19 @@ export interface ChoiceStage {
   prompt?: string;
 }
 
+export interface WordPair {
+  a: string;
+  b: string;
+}
+
 export type LessonStage =
   | { type: 'text'; title: string; text: string; letters?: string[] }
   | { type: 'letters'; title: string; text?: string; letters: LetterInfo[] }
   | ChoiceStage
   | { type: 'word'; data: ReadingWord }
-  | { type: 'review'; word: string };
+  | { type: 'review'; word: string }
+  | { type: 'pairs'; title: string; subtitle?: string; pairs: WordPair[] }
+  | { type: 'check'; word: string };
 
 export interface LessonDefinition {
   title: string;

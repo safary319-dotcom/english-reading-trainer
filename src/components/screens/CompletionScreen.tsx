@@ -144,6 +144,28 @@ export default function CompletionScreen({
             <p className="mt-2 text-base leading-relaxed text-ink-500">
               Новое слово из уже изученных букв. Оценивается только первое чтение без подсказок.
             </p>
+
+            <div className="mt-5 grid grid-cols-3 gap-3">
+              <div className="rounded-2xl bg-mint-100 px-4 py-3 text-center">
+                <span className="block text-2xl font-extrabold text-mint-700">
+                  {controlRows.filter((r) => r.firstResult === 'independent').length}
+                </span>
+                <span className="text-sm font-bold text-mint-700">Самостоятельно</span>
+              </div>
+              <div className="rounded-2xl bg-brand-100 px-4 py-3 text-center">
+                <span className="block text-2xl font-extrabold text-brand-700">
+                  {controlRows.filter((r) => r.firstResult === 'assisted').length}
+                </span>
+                <span className="text-sm font-bold text-brand-700">С помощью</span>
+              </div>
+              <div className="rounded-2xl bg-sun-100 px-4 py-3 text-center">
+                <span className="block text-2xl font-extrabold text-sun-600">
+                  {controlRows.filter((r) => r.firstResult === 'failed').length}
+                </span>
+                <span className="text-sm font-bold text-sun-600">Не получилось</span>
+              </div>
+            </div>
+
             <ul className="mt-4 divide-y divide-brand-100">
               {controlRows.map(({ word, firstResult }) => (
                 <li key={word} className="flex flex-col gap-2 py-4">

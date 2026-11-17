@@ -60,7 +60,7 @@ export function PhaseHeading({ title, subtitle }: { title: ReactNode; subtitle?:
   );
 }
 
-function ResultChooser({ result, onResult }: { result: ReadingResult | undefined; onResult: (result: ReadingResult) => void }) {
+export function ResultChooser({ result, onResult }: { result: ReadingResult | undefined; onResult: (result: ReadingResult) => void }) {
   return (
     <div className="mt-8 w-full max-w-md">
       <p className="mb-4 text-center text-lg font-extrabold text-ink-800">Взрослый отмечает результат:</p>

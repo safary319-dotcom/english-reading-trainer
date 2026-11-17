@@ -3,6 +3,8 @@ import LettersScreen from '@/components/screens/LettersScreen';
 import LetterChoiceScreen from '@/components/screens/LetterChoiceScreen';
 import ReviewWordScreen from '@/components/screens/ReviewWordScreen';
 import TextScreen from '@/components/screens/TextScreen';
+import PairsScreen from '@/components/screens/PairsScreen';
+import CheckWordScreen from '@/components/screens/CheckWordScreen';
 import type { ReadingResult } from '@/data/lesson1';
 import type { LessonStage } from '@/data/lessonStages';
 
@@ -46,5 +48,16 @@ export default function LessonStageView({
       );
     case 'review':
       return <ReviewWordScreen word={stage.word} onNext={onNext} />;
+    case 'pairs':
+      return <PairsScreen title={stage.title} subtitle={stage.subtitle} pairs={stage.pairs} onNext={onNext} />;
+    case 'check':
+      return (
+        <CheckWordScreen
+          word={stage.word}
+          result={readingResults.first[stage.word]}
+          onResult={(result) => onFirstResult(stage.word, result)}
+          onNext={onNext}
+        />
+      );
   }
 }
